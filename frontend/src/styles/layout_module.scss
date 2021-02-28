@@ -1,0 +1,13 @@
+@import './variables_module.scss';
+
+.container {
+  margin: 70px 5%;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+  &_item {
+    justify-self: center;
+  }
+}

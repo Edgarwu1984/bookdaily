@@ -1,0 +1,24 @@
+@import '../../styles/variables_module.scss';
+
+.slider {
+  position: relative;
+  height: 400px;
+  margin-top: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  .patten {
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    background-color: $primary-light;
+    clip-path: polygon(16% 0, 100% 0, 84% 100%, 0% 100%);
+  }
+  img {
+    max-width: 50%;
+    padding: 60px;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,8 @@
+@import '../../styles/variables_module.scss';
+.rating {
+  color: $warning;
+
+  & > * {
+    margin-right: 4px;
+  }
+}

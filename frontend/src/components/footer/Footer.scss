@@ -1,0 +1,40 @@
+@import '../../styles/variables_module.scss';
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgb(255, 255, 255);
+  border-top: 1px solid $light-grey;
+  margin-top: 40px;
+  height: 200px;
+
+  .nav_links,
+  .social_links {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    max-width: 600px;
+
+    .links_item {
+      list-style: none;
+      a {
+        color: $grey;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .social_links {
+    width: 250px;
+  }
+
+  .copyright {
+    color: $grey;
+    text-align: center;
+    margin: 30px;
+    p {
+      font-size: 12px;
+    }
+  }
+}

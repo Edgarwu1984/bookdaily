@@ -1,0 +1,64 @@
+@import '../../styles/variables_module.scss';
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: white;
+  width: 250px;
+  text-decoration: none;
+  color: $dark;
+  box-shadow: 0px 8px 15px rgba($primary-dark, 0.1);
+  cursor: pointer;
+  &:hover {
+    transition: all 0.2s ease-out;
+    transform: scale(1.005);
+    box-shadow: 2px 15px 30px rgba($primary-dark, 0.2);
+  }
+  & > * {
+    margin-bottom: 8px;
+  }
+
+  &_img {
+    height: 280px;
+    margin-bottom: 20px;
+  }
+  &_title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: auto;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &_author {
+    margin-right: auto;
+    font-weight: 500;
+  }
+  &_rating_reviews {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .reviews {
+      margin-left: auto;
+    }
+  }
+
+  &_warning {
+    color: $grey;
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &_price {
+    margin-left: auto;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
