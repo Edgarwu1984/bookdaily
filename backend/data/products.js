@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'The Longest Echo: A Novel',
     author: 'Eoin Dempsey',
     image: '/images/Book_001.png',
@@ -16,7 +15,6 @@ const products = [
     numReviews: 122,
   },
   {
-    _id: '2',
     name: 'The Survivors',
     author: 'Jane Harper',
     image: '/images/Book_002.png',
@@ -32,7 +30,6 @@ const products = [
     numReviews: 1260,
   },
   {
-    _id: '3',
     name: "The Bigamist: The True Story of a Husband's Ultimate Betrayal",
     author: 'Mary Turner Thomson',
     image: '/images/Book_003.png',
@@ -48,7 +45,6 @@ const products = [
     numReviews: 3760,
   },
   {
-    _id: '4',
     name: 'When He Was Wicked: Bridgerton (Bridgertons Book 6)',
     author: 'Julia Quinn',
     image: '/images/Book_004.png',
@@ -64,7 +60,6 @@ const products = [
     numReviews: 2410,
   },
   {
-    _id: '5',
     name: 'To Sir Phillip, With Love: Bridgerton (Bridgertons Book 5)',
     author: 'Julia Quinn',
     image: '/images/Book_005.png',
@@ -76,38 +71,6 @@ const products = [
     Language: 'English',
     price: 3.99,
     countInStock: 0,
-    rating: 4.5,
-    numReviews: 5410,
-  },
-  {
-    _id: '6',
-    name: 'To Sir Phillip, With Love: Bridgerton (Bridgertons Book 5)',
-    author: 'Julia Quinn',
-    image: '/images/Book_005.png',
-    description:
-      'Sir Phillip knew that Eloise Bridgerton was a spinster, and so he’d proposed, figuring that she’d be homely and unassuming, and more than a little desperate for an offer of marriage. Except . . . she wasn’t. The beautiful woman on his doorstep was anything but quiet, and when she stopped talking long enough to close her mouth, all he wanted to do was kiss her ',
-    ASIN: 'B00U6SFUVK',
-    category: 'Novel',
-    Publisher: 'Avon; Reprint edition (31 January 2017)',
-    Language: 'English',
-    price: 3.99,
-    countInStock: 9,
-    rating: 4.5,
-    numReviews: 5410,
-  },
-  {
-    _id: '7',
-    name: 'To Sir Phillip, With Love: Bridgerton (Bridgertons Book 5)',
-    author: 'Julia Quinn',
-    image: '/images/Book_005.png',
-    description:
-      'Sir Phillip knew that Eloise Bridgerton was a spinster, and so he’d proposed, figuring that she’d be homely and unassuming, and more than a little desperate for an offer of marriage. Except . . . she wasn’t. The beautiful woman on his doorstep was anything but quiet, and when she stopped talking long enough to close her mouth, all he wanted to do was kiss her ',
-    ASIN: 'B00U6SFUVK',
-    category: 'Novel',
-    Publisher: 'Avon; Reprint edition (31 January 2017)',
-    Language: 'English',
-    price: 3.99,
-    countInStock: 9,
     rating: 4.5,
     numReviews: 5410,
   },
