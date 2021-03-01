@@ -15,8 +15,7 @@ function Product({ product }) {
       <h4 className='product_title'>{product.name}</h4>
       <h5 className='product_author'>{product.author}</h5>
       <div className='product_rating_reviews'>
-        <Rating value={product.rating} />
-        <div className='reviews'>{product.numReviews} reviews</div>
+        <Rating value={product.rating} numReviews={product.numReviews} />
       </div>
 
       {product.countInStock === 0 ? (

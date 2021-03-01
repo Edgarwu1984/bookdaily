@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProductDetail.scss';
 import { useHistory } from 'react-router-dom';
 import Rating from '../../components/rating/Rating';
-import products from '../../products';
 import Button from '../../components/button/Button';
+import axios from 'axios';
 
 function ProductDetail({ match }) {
+  const [product, setProduct] = useState({});
   let history = useHistory();
-  const product = products.find(p => p._id === match.params.id);
   const priceFormat = new Intl.NumberFormat('en-AU', {
     style: 'currency',
     currency: 'AUD',
   }).format(product.price);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, [match]);
 
   return (
     <div className='container'>
@@ -30,8 +39,7 @@ function ProductDetail({ match }) {
             <h5 className='name'>{product.name}</h5>
             <h5 className='author'>by {product.author}</h5>
             <div className='rating_reviews'>
-              <Rating value={product.rating} />
-              <p className='reviews'>{product.numReviews} reviews</p>
+              <Rating value={product.rating} numReviews={product.numReviews} />
             </div>
             <h5 className='price'>
               <strong>Price:</strong> {priceFormat}
