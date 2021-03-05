@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './Home.scss';
-import '../../styles/layout_module.scss';
+import '../../styles/styles_module.scss';
 import Slider from '../../components/slider/Slider';
 import Product from '../../components/product/Product';
 import { listProducts } from '../../actions/productActions';
@@ -21,7 +20,7 @@ function Home() {
     <>
       <Slider />
       <div className='container'>
-        <h5 className='section_title'>Latest books</h5>
+        <h5 className='page_title'>Latest books</h5>
         {loading ? (
           <Loader />
         ) : error ? (

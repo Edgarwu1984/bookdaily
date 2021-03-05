@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
-function Header() {
+function Header({ match }) {
   const currentYear = new Date().getFullYear();
   const [clicked, setClick] = useState(false);
+  const [showCount, setShowCount] = useState(false);
 
   const hanldeClick = () => setClick(!clicked);
   const closeMenu = () => setClick(false);
 
+  const cart = useSelector(state => state.cart);
+  const { cartItems } = cart;
+
+  const totalItems = Number(cartItems.reduce((acc, item) => acc + item.qty, 0));
   return (
     <header>
       <NavLink to='/' className='brand' onClick={closeMenu}>
@@ -19,7 +25,10 @@ function Header() {
         <ul className='nav_links'>
           <li className='links_item'>
             <NavLink to='/cart' onClick={closeMenu}>
-              <i className='fas fa-shopping-cart' />
+              {cartItems.length !== 0 && (
+                <span className='cart_count'>{totalItems}</span>
+              )}
+              <i className='fas fa-shopping-cart ' />
               Cart
             </NavLink>
           </li>

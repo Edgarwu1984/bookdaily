@@ -1,27 +1,28 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './ProductDetail.scss';
+import '../../styles/styles_module.scss';
 import Rating from '../../components/rating/Rating';
 import Button from '../../components/button/Button';
 import { listProductDetails } from '../../actions/productActions';
+import { addToCart } from '../../actions/cartActions';
 import Loader from '../../components/loader/Loader';
 import Message from '../../components/message/Message';
 
-function ProductDetail({ match }) {
-  let history = useHistory();
+function ProductDetail({ match, history }) {
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-
   const productDetails = useSelector(state => state.productDetails);
   const { loading, error, product } = productDetails;
-  const priceFormat = new Intl.NumberFormat('en-AU', {
-    style: 'currency',
-    currency: 'AUD',
-  }).format(product.price);
 
   useEffect(() => {
     dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(match.params.id, quantity));
+    history.push(`/cart/${match.params.id}?qty=${quantity}`);
+  };
 
   return (
     <div className='container'>
@@ -51,7 +52,7 @@ function ProductDetail({ match }) {
                 />
               </div>
               <h5 className='price'>
-                <strong>Price:</strong> {priceFormat}
+                Price: <span>$ {Number(product.price).toFixed(2)}</span>
               </h5>
               <div className='description'>
                 <h5>Book Description</h5>
@@ -59,10 +60,10 @@ function ProductDetail({ match }) {
               </div>
             </div>
           </div>
-          <div className='cart_detail'>
-            <div className='price'>
-              <strong>Price:</strong> <span>{priceFormat}</span>
-            </div>
+          <div className='cart_detail card'>
+            <h5 className='price'>
+              Price: <span>$ {Number(product.price).toFixed(2)}</span>
+            </h5>
             <div className='status'>
               <strong>Status:</strong>
               {product.countInStock > 0 ? (
@@ -71,16 +72,29 @@ function ProductDetail({ match }) {
                 <span>Out of Stock</span>
               )}
             </div>
-            <div className='quantity'>
-              <strong>Qty:</strong>
-              <select name='1'>
-                <option value='1'>1</option>
-              </select>
-            </div>
+            {product.countInStock > 0 && (
+              <div className='quantity'>
+                <strong>Qty:</strong>
+                <select
+                  value={quantity}
+                  onChange={e => setQuantity(e.target.value)}>
+                  {[...Array(product.countInStock).keys()].map(q => (
+                    <option key={q + 1} value={q + 1}>
+                      {q + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             {product.countInStock === 0 ? (
               <Button styles='btn_disabled' title='Out of Stock' />
             ) : (
-              <Button styles='btn_primary' title='Add to Cart' />
+              <Button
+                styles='btn_primary'
+                title='Add to Cart'
+                onClick={addToCartHandler}
+              />
             )}
           </div>
         </div>

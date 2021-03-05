@@ -11,13 +11,11 @@ function App() {
     <Router>
       <Header />
       <main>
-        <div className='container'>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/product/:id' component={ProductDetail} />
-            <Route path='/cart' component={Cart} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/product/:id' component={ProductDetail} />
+          <Route path='/cart/:id?' component={Cart} />
+        </Switch>
       </main>
       <Footer />
     </Router>

@@ -9,4 +9,9 @@ function Message({ type, children }) {
   );
 }
 
+Message.defaultProps = {
+  type: 'info',
+  children: 'Empty Message...',
+};
+
 export default Message;

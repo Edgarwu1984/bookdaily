@@ -41,11 +41,29 @@ header {
           text-decoration: none;
           text-transform: uppercase;
           color: $dark;
+          position: relative;
+          .cart_count {
+            content: attr(count-in-cart);
+            position: absolute;
+            top: -12px;
+            left: -10px;
+            background-color: $primary;
+            border-radius: 50%;
+            color: $bg;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 20px;
+            height: 20px;
+          }
           .fas {
             margin-right: 8px;
           }
+
           &:hover {
-            transition: all 0.15s ease-out;
+            transition: all 0.1s ease-out;
             color: $primary;
           }
         }

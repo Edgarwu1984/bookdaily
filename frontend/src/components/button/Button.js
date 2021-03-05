@@ -6,11 +6,9 @@ function Button(props) {
   const { title, styles, onClick, onSubmit } = props;
 
   return (
-    <>
-      <button className={styles} onClick={onClick} onSubmit={onSubmit}>
-        {title}
-      </button>
-    </>
+    <button className={styles} onClick={onClick} onSubmit={onSubmit}>
+      {title}
+    </button>
   );
 }
 

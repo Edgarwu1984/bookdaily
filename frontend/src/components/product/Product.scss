@@ -4,19 +4,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  border-radius: 8px;
-  background-color: white;
   width: 250px;
   text-decoration: none;
   color: $dark;
-  box-shadow: 0px 8px 15px rgba($primary-dark, 0.1);
   cursor: pointer;
-  &:hover {
-    transition: all 0.2s ease-out;
-    transform: scale(1.005);
-    box-shadow: 2px 15px 30px rgba($primary-dark, 0.2);
-  }
+
   & > * {
     margin-bottom: 8px;
   }

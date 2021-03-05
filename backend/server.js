@@ -6,19 +6,17 @@ import productRoutes from './routes/productRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 dotenv.config();
-
 connectDB();
-
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('API is running... Boom');
-});
+// app.get('/', (req, res) => {
+//   res.send('API is running... Boom');
+// });
 
 app.use('/api/products', productRoutes);
 
+// Handle Errors
 app.use(notFound);
-
 app.use(errorHandler);
 
 app.get('/api/products', (req, res) => {
@@ -30,8 +28,8 @@ app.get('/api/products/:id', (req, res) => {
   res.json(product);
 });
 
+//Teminal message for server status
 const PORT = process.env.PORT || 5000;
-
 app.listen(
   PORT,
   console.log(
